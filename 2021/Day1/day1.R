@@ -6,8 +6,8 @@ table(input$dec_in)
 
 
 library(RcppRoll)
-input$roll_sum <- RcppRoll::roll_sum(input$V1, n = 3L, align = "center", fill = NA)
+input$roll_sum <- RcppRoll::roll_sum(input$V1, n = 3L, align = "left", fill = NA)
 input$roll_lagged <- c(NA, input$roll_sum[-2000])
 input$roll_diff <- input$roll_sum - input$roll_lagged
-input$roll_in <- ifelse(input$roll_diff > 0, "decrease", "increase")
+input$roll_in <- ifelse(input$roll_diff < 0, "decrease", ifelse(input$roll_diff == 0, "same", "increase"))
 table(input$roll_in)
