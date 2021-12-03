@@ -1,5 +1,6 @@
 library(magrittr)
 library(tidyr)
+library(dplyr)
 input <- read.delim('2021/Day2/input.txt', header = FALSE) %>%
   tidyr::separate(V1, into = c("dir", "value"), sep = " ") %>%
   dplyr::group_by(dir) %>%
