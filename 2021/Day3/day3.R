@@ -1,6 +1,5 @@
 library(magrittr)
 library(tidyr)
-library(dplyr)
 input <- read.table('2021/Day3/input.txt', header = FALSE, colClasses = c("character"))%>%
   tidyr::separate(V1, into = as.character(1:12), sep = "(?<=[01])")
 most_common <- function(x){
